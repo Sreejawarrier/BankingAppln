@@ -17,16 +17,16 @@ public class CbaLoginClass {
 	  By loginButtonloc = By.name("submit-commsec-form");
 	  
 	  public CbaLoginClass testCommSecLogin() {
-			WebDriverWait wait1 = new WebDriverWait(driver, 10);
-		    //Tap on Logon icon on the right top corner
-		    driver.findElement(By.className("log-on-text")).click();
-		    //Click on Common Section/NetBank/
-			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li/a[contains(text(),'CommSec')]"))).click();
-			driver.findElement(By.id("fakeUsername")).sendKeys("fakename");
-			driver.findElement(By.id("password")).sendKeys("passwd");
-			  //driver.findElement(By.id("btnLogon_field")).click();
-			driver.findElement(By.name("submit-commsec-form")).click();
-            return this;//As it fails to login return the Login page url
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+	    //Tap on Logon icon on the right top corner
+	    driver.findElement(By.className("log-on-text")).click();
+	    //Click on Common Section/NetBank/
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li/a[contains(text(),'CommSec')]"))).click();
+		driver.findElement(By.id("fakeUsername")).sendKeys("fakename");
+		driver.findElement(By.id("password")).sendKeys("passwd");
+		  //driver.findElement(By.id("btnLogon_field")).click();
+		driver.findElement(By.name("submit-commsec-form")).click();
+        return this;//As it fails to login return the Login page url
 		  }
 	  public CbaLoginClass testNetbankLogin() {
 		//driver.get("https://www.commbank.com.au");
@@ -37,41 +37,40 @@ public class CbaLoginClass {
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li/a[contains(text(),'NetBank')]"))).click();
 		driver.findElement(By.name("txtMyClientNumber$field")).sendKeys("fakename");
 		driver.findElement(By.name("txtMyPassword$field")).sendKeys("passwd");
-			  //driver.findElement(By.id("btnLogon_field")).click();
-			driver.findElement(By.cssSelector("input#btnLogon_field")).click();
-          return this;//As it fails to login return the Login page url
+     	driver.findElement(By.cssSelector("input#btnLogon_field")).click();
+        return this;//As it fails to login return the Login page url
 		  }
 	  
-	  public void nextChapter() {
-			WebDriverWait wait1 = new WebDriverWait(driver, 10);
-		    //Tap on Tell me more button on the homescreen
-			driver.findElement(By.linkText("Tell me more"));
-			//Click on financial abuse Section
-			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='#fin-abuse']"))).click();
-			//assertTrue(driver.getCurrentUrl().endsWith("financialabuse"));
-			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='#hub']"))).click();
-			//Assert.assertEquals(driver.findElement(By.partialLinkText("Financial Independen")).getText(),"Travel products");
-			System.out.println(driver.findElement(By.partialLinkText("Financial Independen")).getText());
+	  public void nextChapterTest() {
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+	    //Tap on Tell me more button on the homescreen
+		driver.findElement(By.linkText("Tell me more"));
+		//Click on financial abuse Section
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.className("button_secondary"))).click();
+		//assertTrue(driver.getCurrentUrl().endsWith("financialabuse"));
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='#hub']"))).click();
+		//Assert.assertEquals(driver.findElement(By.partialLinkText("Financial Independen")).getText(),"Travel products");
+		System.out.println(driver.findElement(By.partialLinkText("Financial Independen")).getText());
 
-			//wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover more"))).click();
+		//wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover more"))).click();
 		  }
 	  public void travelProducts() {
-			WebDriverWait wait1 = new WebDriverWait(driver, 10);
-		    //Tap on Logon icon on the right top corner
-			//WebElement travelProd = driver.findElement(By.xpath("//a[@href='https://www.commbank.com.au/travel.html?ei=hp-prodnav_Travel']"));
-			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Travel products')]"))).click();
-			//act.click(travelProd).build().perform();    
-			//https://www.commbank.com.au/bank-accounts.html?ei=hp-prodnav_BankAccounts
-			//Click on Common Section/NetBank/
-			//assertTrue(driver.getCurrentUrl().endsWith("prodnav_Travel"));
-			System.out.println(driver.findElement(By.xpath("//div[@class='card-header']")).getText());
-			//Assert.assertEquals(driver.findElement(By.partialLinkText("Travel produc")).getText(),"Travel products");	
-			//Assert.assertEquals(driver.findElement(By.partialLinkText("Financial Independen")).getText(),"Travel products");
-			System.out.println(driver.findElement(By.partialLinkText("Travel produc")).getText());
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+	    //Tap on Logon icon on the right top corner
+		//WebElement travelProd = driver.findElement(By.xpath("//a[@href='https://www.commbank.com.au/travel.html?ei=hp-prodnav_Travel']"));
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Travel products')]"))).click();
+		//act.click(travelProd).build().perform();    
+		//https://www.commbank.com.au/bank-accounts.html?ei=hp-prodnav_BankAccounts
+		//Click on Common Section/NetBank/
+		//assertTrue(driver.getCurrentUrl().endsWith("prodnav_Travel"));
+		System.out.println(driver.findElement(By.xpath("//div[@class='card-header']")).getText());
+		//Assert.assertEquals(driver.findElement(By.partialLinkText("Travel produc")).getText(),"Travel products");	
+		//Assert.assertEquals(driver.findElement(By.partialLinkText("Financial Independen")).getText(),"Travel products");
+		System.out.println(driver.findElement(By.partialLinkText("Travel produc")).getText());
 
-			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover more"))).click();
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover more"))).click();
 			
-			  }
+		}
 
 
 

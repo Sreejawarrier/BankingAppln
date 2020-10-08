@@ -39,7 +39,12 @@ public class BasicTest extends TestBaseClass {
     assertTrue(driver.getCurrentUrl().endsWith("CommBankVersion2"));
 
 	}
-		
+	@Test
+	public void testNextChapter() throws Exception {
+	lp=new CbaLoginClass(driver);
+	lp.nextChapterTest();
+	assertTrue(driver.getCurrentUrl().endsWith("CommBankVersion2"));
+	}
  
 @AfterTest
   public void afterTest() {
