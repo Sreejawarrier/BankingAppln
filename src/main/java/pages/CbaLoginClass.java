@@ -29,22 +29,34 @@ public class CbaLoginClass {
         return this;//As it fails to login return the Login page url
 		  }
 	  public CbaLoginClass testNetbankLogin() {
-		//driver.get("https://www.commbank.com.au");
+		driver.get("https://www.commbank.com.au");
 		WebDriverWait wait1 = new WebDriverWait(driver, 10);
 	    //Tap on Logon icon on the right top corner
 	    driver.findElement(By.className("log-on-text")).click();
 	    //Click on Common Section/NetBank/
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li/a[contains(text(),'NetBank')]"))).click();
-		driver.findElement(By.name("txtMyClientNumber$field")).sendKeys("fakename");
-		driver.findElement(By.name("txtMyPassword$field")).sendKeys("passwd");
+		//driver.findElement(By.name("txtMyClientNumber$field")).sendKeys("fakename");
+		//driver.findElement(By.cssSelector("#txtMyClientNumber_label")).click();
+     	driver.findElement(By.cssSelector("div.CbaButton")).click();
+
+		driver.findElement(By.cssSelector("input#txtMyClientNumber_field")).sendKeys("12345");
+
+		//driver.findElement(By.cssSelector("input#txtMyClientNumber_field.text.textbox.txtCommbankField.field")).sendKeys("12345");
+		//driver.findElement(By.cssSelector("#txtMyPassword_label")).sendKeys("pwd");
+		driver.findElement(By.cssSelector("input#txtMyPassword_field.text.textbox.txtCommbankField.field")).sendKeys("pwd");
+
+
+		//driver.findElement(By.name("txtMyPassword$field")).sendKeys("passwd");
      	driver.findElement(By.cssSelector("input#btnLogon_field")).click();
         return this;//As it fails to login return the Login page url
 		  }
 	  
 	  public void nextChapterTest() {
+			driver.get("https://www.commbank.com.au");
+
 		WebDriverWait wait1 = new WebDriverWait(driver, 10);
 	    //Tap on Tell me more button on the homescreen
-		driver.findElement(By.linkText("Tell me more"));
+		//driver.findElement(By.linkText("Tell me more"));
 		//Click on financial abuse Section
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.className("button_secondary"))).click();
 		//assertTrue(driver.getCurrentUrl().endsWith("financialabuse"));
@@ -67,7 +79,6 @@ public class CbaLoginClass {
 		//Assert.assertEquals(driver.findElement(By.partialLinkText("Travel produc")).getText(),"Travel products");	
 		//Assert.assertEquals(driver.findElement(By.partialLinkText("Financial Independen")).getText(),"Travel products");
 		System.out.println(driver.findElement(By.partialLinkText("Travel produc")).getText());
-
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Discover more"))).click();
 			
 		}

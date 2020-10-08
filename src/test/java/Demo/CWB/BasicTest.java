@@ -25,13 +25,13 @@ public class BasicTest extends TestBaseClass {
 	setUP();
 		}
 	
- 	@Test
+ 	/*@Test
 	public void commSecTest() throws Exception {
     lp=new CbaLoginClass(driver);
 	lp.testCommSecLogin();
     assertTrue(driver.getCurrentUrl().endsWith("LoginFailed"));
 
-	}
+	}*/
 	@Test
 	public void netBankTest() throws Exception {
 	lp=new CbaLoginClass(driver);
@@ -43,7 +43,7 @@ public class BasicTest extends TestBaseClass {
 	public void testNextChapter() throws Exception {
 	lp=new CbaLoginClass(driver);
 	lp.nextChapterTest();
-	assertTrue(driver.getCurrentUrl().endsWith("CommBankVersion2"));
+	assertTrue(driver.getCurrentUrl().endsWith("financialabuse"));
 	}
  
 @AfterTest
